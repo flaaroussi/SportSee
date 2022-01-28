@@ -1,0 +1,13 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
+
+.header{
+   
+   &__name{
+      font-size: 48px;
+      font-weight:$font-medium;
+      span{
+         color :$color-red;
+      }
+   }
+}

@@ -1,0 +1,23 @@
+@import url('https://necolas.github.io/normalize.css/latest/normalize.css');
+@import './mixins.scss';
+@import './variables.scss';
+*{
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+   list-style: none;
+   list-style-type: none;
+}
+
+body{
+   font-size: 0.75rem; /* 12px */
+   font-family: $font-family-primary, DM+Sans, sans-serif;
+   font-weight: $font-regular;
+   min-height: 1024px;
+   min-width: 780px;
+
+}
+
+a{
+   text-decoration: none;
+}
