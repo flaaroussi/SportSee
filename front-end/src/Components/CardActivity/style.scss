@@ -1,0 +1,30 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
+
+.card-activity{
+   border :1px solid red;
+
+   &__header{
+      @include flex (row, space-between, center);
+      height: 60px;
+
+      h3{
+         margin-left: 20px;
+         font-size: 15px;
+         font-weight: $font-medium;
+      }
+      
+      &__indicator{
+         @include flex (row, space-between, center);
+        
+         &__els{
+            margin-right: 20px;
+            span{
+               margin-left: 6px;
+               font-size: 14px;
+               font-weight: $font-medium;
+            }
+         }
+      }
+   } 
+}

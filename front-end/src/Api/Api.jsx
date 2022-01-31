@@ -4,11 +4,19 @@ const axios = require('axios')
 const url = 'http://localhost:3000';
 
 export const useApiUser = (userId, service) => {
+      let endpoint = `${url}/user/${userId}`
+      if(service){
+         endpoint = endpoint + `/${service}`
+      }
 
-      const endpoint = `${url}/user/${userId}`
+      console.log(endpoint)
       const [data , setData] = useState({});
+      const [isDataLoading , setDataLoading] = useState(true);
+      
+      //const [isDataLoading, setDataLoading] = useState(false)
 
       useEffect(() => {
+         setDataLoading(true);
           const fetchData = async() => {
             try {
                const response = await axios.get(endpoint);
@@ -19,12 +27,13 @@ export const useApiUser = (userId, service) => {
              } catch (error) {
                console.error(error);
              }
+             setDataLoading(false);
          }
 
          fetchData()
 
-      }, [])
+      }, [endpoint,userId, service])
 
- return {data}
+ return {data, isDataLoading}
 
 } 
