@@ -15,35 +15,33 @@
             grid-row: 1;
             grid-column: span 3;
          }
+         .card-durationSessions{
+            background-color: #FF0000;
+            grid-row: 2;
+            grid-column: 1;
+         }
+         .card-performance{
+            grid-row: 2;
+            grid-column: 2;
+            background-color: $color-black2;
+         }
+
+         .card-score{
+            background-color: $backgroud2;
+            grid-row: 2;
+            grid-column: 3;
+
+         }
+
+
+
+
          .CardInfos{
             background-color: yellow;
             grid-row: span 2;
             grid-column: 4;
 
          }
-
-         .LigneChart{
-            grid-row: 2;
-            grid-column: 1;
-            background-color: grey;
-         }
-         
-         .RadialBarchart{
-            background-color: palevioletred;
-            grid-row: 2;
-            grid-column: 3;
-
-         }
-         .RadarChart{
-            background-color: tomato;
-            grid-row: 2;
-            grid-column: 2;
-         }
-
-
-
-
-
 
       }
 

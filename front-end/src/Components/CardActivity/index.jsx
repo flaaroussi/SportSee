@@ -5,7 +5,7 @@ import { ReactComponent as Oval } from '../../assets/images/Oval.svg'
 import Loader from '../Loader';
 import Error from '../../Pages/Error';
 import React, { PureComponent } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 /**
@@ -18,6 +18,8 @@ export default function CardActivity (){
    // http://localhost:3000/user/12/activity
    const {data, isDataLoading} = useApiUser(userId, 'activity')
    console.log(data)
+  
+
    if(isDataLoading){
       // show componant loader indictor
       return <Loader/>
@@ -49,7 +51,6 @@ export default function CardActivity (){
                <XAxis dataKey="day" />
                <YAxis dataKey="kilogram"/>
                <Tooltip />
-               <Legend />
                <Bar dataKey="kilogram" fill="#282D30" barSize={7} />
                <Bar dataKey="calories" fill="#E60000" barSize={7} />
             </BarChart>

@@ -3,17 +3,21 @@
 
 .card-activity{
    border :1px solid red;
+   @include flex (column, space-between, center);
 
    &__header{
       @include flex (row, space-between, center);
-      height: 60px;
+      //height: 60px;
+      width: 100%;
+      margin-bottom: 20px;
+      margin-top: 20px;
 
       h3{
          margin-left: 20px;
          font-size: 15px;
          font-weight: $font-medium;
       }
-      
+
       &__indicator{
          @include flex (row, space-between, center);
         

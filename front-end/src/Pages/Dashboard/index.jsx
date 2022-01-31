@@ -1,15 +1,16 @@
 import './style.scss';
 import {useApiUser} from '../../Api/Api'
 import Profil from '../../Components/Profil';
-
 import Loader from '../../Components/Loader';
 import Error from '../Error';
 import CardActivity from '../../Components/CardActivity';
-import LigneChart from '../../Components/LigneChart';
-import CardInfos from '../../Components/CardInfos';
-import RadialBarchart from '../../Components/RadialBarchart';
-import RadarChart from '../../Components/RadarChart';
+import CardDuration from '../../Components/CardDurationSessions'
+import CardPerformance from '../../Components/CartPerformance';
+import CardInfo from '../../Components/CardInfo';
+
 import { useParams } from 'react-router-dom';
+import CardScore from '../../Components/CardScore';
+
 
 /**
  * 
@@ -25,6 +26,7 @@ export default function Dashboard (){
       // show componant loader indictor
       return <Loader/>
    }
+
    if (!data){
       return <Error/>
    }
@@ -32,19 +34,22 @@ export default function Dashboard (){
    if(data && isDataLoading === false){
       //console.log(data.userInfos.firstName)
       return (<main className="main dashboard">
-      <Profil firstName={data.userInfos.firstName} />
-      <section className="dashboard__cards">
-         <CardActivity />
-         <RadialBarchart />
-         <LigneChart />
-         <RadarChart />
-         <CardInfos />
-      </section>
-
+         <Profil firstName={data.userInfos.firstName} />
+         <section className="dashboard__cards">
+            <CardActivity />
+            <CardScore score={data.score}/>
+            <CardPerformance />
+            <CardDuration />
+            <section className='CardInfos'>
+            <CardInfo />
+            <CardInfo />
+            <CardInfo />
+            <CardInfo />
+            </section>
+         </section>
       </main>)
+
    }else{
       return (<Loader/>)
    }
-
-  
 }

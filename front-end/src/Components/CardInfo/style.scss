@@ -1,0 +1,10 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
+
+.CardInfos{
+   @include flex (column, space-between, center);
+   .card-info{
+      border:1px solid red;
+      height:120px;
+   }
+}

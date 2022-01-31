@@ -4,7 +4,9 @@ const axios = require('axios')
 const url = 'http://localhost:3000';
 
 export const useApiUser = (userId, service) => {
+
       let endpoint = `${url}/user/${userId}`
+   
       if(service){
          endpoint = endpoint + `/${service}`
       }

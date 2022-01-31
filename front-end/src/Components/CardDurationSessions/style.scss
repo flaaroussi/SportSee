@@ -1,0 +1,14 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
+
+.card-durationSessions{
+   border-radius: 5px;
+   &__header{
+      h1{
+         font-size: 15px;
+         font-weight: $font-medium;
+         color: $color-white;
+   
+      }
+   }
+}

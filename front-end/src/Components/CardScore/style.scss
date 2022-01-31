@@ -1,0 +1,24 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
+
+.card-score{
+   border-radius: 5px;
+   padding: 20px;
+   h1{
+      font-size: 15px;
+   }
+   &__chart{
+      height: 220px;
+      @include flex (column, center, center);
+      position: relative;
+      border:1px solid red;
+      &__legend{
+         @include flex (column, center, center);
+         border:1px solid red;
+         position: absolute;
+         top:5rem
+      }
+   }
+   
+
+}
