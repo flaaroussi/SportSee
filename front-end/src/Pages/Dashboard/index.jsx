@@ -32,21 +32,22 @@ export default function Dashboard (){
    }
 
    if(data && isDataLoading === false){
-      //console.log(data.userInfos.firstName)
+      
+      
       return (<main className="main dashboard">
          <Profil firstName={data.userInfos.firstName} />
-         <section className="dashboard__cards">
+         <article className="dashboard__cards">
             <CardActivity />
             <CardScore score={data.score}/>
             <CardPerformance />
             <CardDuration />
-            <section className='CardInfos'>
-            <CardInfo />
-            <CardInfo />
-            <CardInfo />
-            <CardInfo />
-            </section>
-         </section>
+            <div className='CardInfos'>
+               <CardInfo keyName="Calories" keyValue={data.keyData.calorieCount} KeyUnite="kCal" icon="calorie"/>
+               <CardInfo keyName="Protèines" keyValue={data.keyData.proteinCount} KeyUnite="g" icon="chicken"/>
+               <CardInfo keyName="Glucides" keyValue={data.keyData.carbohydrateCount} KeyUnite="g" icon="apple"/>
+               <CardInfo keyName="Lipides" keyValue={data.keyData.lipidCount} KeyUnite="g" icon="cheesburger"/>
+            </div>
+         </article>
       </main>)
 
    }else{

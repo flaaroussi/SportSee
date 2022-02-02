@@ -1,14 +1,17 @@
 @import '../../scss/mixins.scss';
 @import '../../scss/variables.scss';
 
+//style tiny line chart
 .card-durationSessions{
+   @include flex (column, space-between, 0);
    border-radius: 5px;
    &__header{
       h1{
          font-size: 15px;
          font-weight: $font-medium;
          color: $color-white;
-   
+         margin-top: 20px;
+         margin-left: 20px;
       }
    }
 }

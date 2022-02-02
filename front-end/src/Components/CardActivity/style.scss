@@ -1,8 +1,8 @@
 @import '../../scss/mixins.scss';
 @import '../../scss/variables.scss';
 
+//style simple bar chart
 .card-activity{
-   border :1px solid red;
    @include flex (column, space-between, center);
 
    &__header{

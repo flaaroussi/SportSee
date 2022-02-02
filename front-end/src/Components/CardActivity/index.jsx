@@ -17,16 +17,29 @@ export default function CardActivity (){
    const { userId } = useParams();
    // http://localhost:3000/user/12/activity
    const {data, isDataLoading} = useApiUser(userId, 'activity')
-   console.log(data)
-  
+   
 
    if(isDataLoading){
-      // show componant loader indictor
       return <Loader/>
    }
+
    if (!data){
       return <Error/>
    }
+
+   /**
+    * 
+    * @param {*} date 
+    */
+    const getDateDay = (date) => {
+      const objetDate = new Date(date);
+      console.log(date)
+      console.log(objetDate.getDate())
+      return objetDate.getDate()
+   }
+  
+
+
 
    if(data && isDataLoading === false){
       return <section className='card-activity'>
@@ -44,15 +57,42 @@ export default function CardActivity (){
                </div>
             </div>
          </header>
-
+         
          <ResponsiveContainer width="100%" height="100%">
-            <BarChart width={500} height={300} data={data.sessions} margin={{ top: 5, right: 30, left: 20, bottom: 5, }}>
-               <CartesianGrid strokeDasharray="3 3" />
-               <XAxis dataKey="day" />
-               <YAxis dataKey="kilogram"/>
+            <BarChart width={500} height={300} data={data.sessions} barGap={8}>
+               <CartesianGrid stroke="#CCC" vertical={false}/>
+               <XAxis 
+                  dataKey="day" 
+                  storke="grey" 
+                  tickLine={false} 
+                  dy={10}
+                  tickFormatter={getDateDay}
+                  />
+               <YAxis 
+                  yAxisId="kilogram"
+                  dataKey="kilogram"
+                  orientation="right"
+                  domain={['dataMin - 2', 'dataMax + 1']}
+                  dx={10}
+                  dy={-2}
+                 
+                  axisLine={false}
+                  tickLine={false}
+                  />
+                  <Tooltip />
+                  <YAxis 
+                  yAxisId="calories"
+                  dataKey="calories"
+                  orientation="left"
+                  domain={['dataMin - 20', 'dataMax + 20']}
+                  dx={10}
+                  dy={-2}
+                  axisLine={false}
+                  tickLine={false}
+                  />
                <Tooltip />
-               <Bar dataKey="kilogram" fill="#282D30" barSize={7} />
-               <Bar dataKey="calories" fill="#E60000" barSize={7} />
+               <Bar yAxisId="kilogram" dataKey="kilogram" fill="#282D30" barSize={7} radius={[50,50,0,0]}/>
+               <Bar yAxisId="calories" dataKey="calories" fill="#E60000" barSize={7} radius={[50,50,0,0]}/>
             </BarChart>
          </ResponsiveContainer>
          

@@ -22,8 +22,7 @@ export const useApiUser = (userId, service) => {
           const fetchData = async() => {
             try {
                const response = await axios.get(endpoint);
-               //console.log(response);
-
+              
                setData(response.data.data);
                
              } catch (error) {

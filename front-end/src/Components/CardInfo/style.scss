@@ -2,9 +2,68 @@
 @import '../../scss/variables.scss';
 
 .CardInfos{
+   
    @include flex (column, space-between, center);
    .card-info{
-      border:1px solid red;
+      background-color: $backgroud2;
+      border-radius: $border-radius;
+      padding: 40px;
+      @include flex (row, space-between, center);
       height:120px;
+      width: 100%;
+
+      &__logo{
+         width: 100px;
+         height: 60px;
+         @include flex (row, center, center);
+         &.calorie{
+            background-color: #F8E0E0;
+            border-radius: 6px;
+            img{
+               color: $color-red-2;
+            }
+         }
+         &.chicken{
+            background-color: #E0F2F7;
+            border-radius: 6px;
+               img{
+                  color: $color-red-2;
+               }
+         }
+         &.apple{
+            background-color: #F7F8E0;
+            border-radius: 6px;
+               img{
+                  color: $color-red-2;
+               }
+         }
+
+         &.cheesburger{
+            background-color: #F8E0E0;
+            border-radius: 6px;
+               img{
+                  color: $color-red-2;
+               }
+         }
+         
+
+
+
+
+      }  
+      &__detail{
+         width: 100%;
+         margin-left: 20px;
+         span{
+            font-size: 20px;
+            font-weight: 700;
+         }
+         div{
+            font-size: 14px;
+            margin-top: 5px;
+         }
+      }   
+
    }
+  
 }

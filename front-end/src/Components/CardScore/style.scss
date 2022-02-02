@@ -11,10 +11,8 @@
       height: 220px;
       @include flex (column, center, center);
       position: relative;
-      border:1px solid red;
       &__legend{
          @include flex (column, center, center);
-         border:1px solid red;
          position: absolute;
          top:5rem
       }

@@ -36,7 +36,7 @@ export default function CardScore({score}){
             </PieChart>
          </ResponsiveContainer>
          <div className='card-score__chart__legend'>
-            legend text
+         {score*100}% de votre objectif
          </div>
       </div>
       </article>)

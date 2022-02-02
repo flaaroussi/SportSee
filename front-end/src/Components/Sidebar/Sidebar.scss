@@ -6,13 +6,11 @@
    width: 117px;
    background-color:$color-black1;
    height: calc(100vh - 91px);
-   
-
    @include flex (column, end, center);
+
    nav{
       @include flex (column, space-between, center);
       gap : 40px;
-
    }
 
    &__logo{
@@ -20,7 +18,9 @@
       height: 64px;
       border-radius: 6px;
       background-color: $color-white;
-
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
 
    &__text{
@@ -30,5 +30,6 @@
       color: $color-white;
       writing-mode: sideways-rl;
       transform: rotate(180deg);
+      margin-top: 160px;
    }
 }
