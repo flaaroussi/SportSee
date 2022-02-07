@@ -4,17 +4,37 @@
 .card-score{
    border-radius: 5px;
    padding: 20px;
+
    h1{
       font-size: 15px;
+      margin-left: 10px;
+      margin-top: 10px;
    }
+
    &__chart{
       height: 220px;
       @include flex (column, center, center);
       position: relative;
+
       &__legend{
          @include flex (column, center, center);
          position: absolute;
-         top:5rem
+         top:5rem;
+         
+         &__score{
+            font-weight: 800;
+            font-size: 16px;
+            margin-bottom:5px;
+            color:$color-bleu
+         }
+         &__text{
+            line-height:21px;
+            opacity:0.5;
+            font-size:16px;
+            font-weight:700
+
+         }
+         
       }
    }
    

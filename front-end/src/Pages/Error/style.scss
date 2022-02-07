@@ -1,0 +1,28 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
+
+
+   .page-error{
+      text-align: center;
+      
+      &__404{
+         font-size: 288px;
+         font-weight: $font-bold;
+         color:$color-red ;
+      }
+
+      &__msg{
+         font-size: 36px;
+         padding-bottom: 180px;
+      } 
+
+      &__lien{
+         font-size:18px;
+         color :$color-red;
+         font-weight: $font-medium;
+         
+         &.active{
+            border-bottom:1px solid $color-red;
+         }
+      }  
+   }

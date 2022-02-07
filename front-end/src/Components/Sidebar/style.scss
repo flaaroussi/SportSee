@@ -6,9 +6,10 @@
    width: 117px;
    background-color:$color-black1;
    height: calc(100vh - 91px);
-   @include flex (column, end, center);
+   @include flex (column, space-between, center);
 
    nav{
+      margin-top: 140px;
       @include flex (column, space-between, center);
       gap : 40px;
    }
@@ -24,12 +25,11 @@
    }
 
    &__text{
-      margin-top: 40px;
+      margin-bottom: 40px;
       font-size: 12px;
       font-weight: $font-medium;
       color: $color-white;
       writing-mode: sideways-rl;
       transform: rotate(180deg);
-      margin-top: 160px;
    }
 }

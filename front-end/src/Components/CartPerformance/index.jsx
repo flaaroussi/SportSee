@@ -1,28 +1,29 @@
 import './style.scss'
-import {useApiUser} from '../../Api/Api'
+import useFechData from '../../Hooks'
 import { useParams } from 'react-router-dom';
 import Loader from '../Loader';
 import Error from '../../Pages/Error';
-import React, { PureComponent } from 'react';
 import { RadarChart, PolarGrid,PolarRadiusAxis, PolarAngleAxis,Radar, ResponsiveContainer,  } from 'recharts';
 
 /**
- * display activity types as radar chart
- * @returns 
+ * @description component for  displaying activity types as radar chart
+ * 
+ * @component
+ * @example
+ * 
+ * return(<CardPerformance  />)
  */
-
-export default function CardPerformance (){
+function CardPerformance (){
 
    const { userId } = useParams();
   
-   const {data, isDataLoading} = useApiUser(userId, 'performance')
-   console.log(data.data)
+   const {data, isDataLoading, isError} = useFechData(userId, 'performance')
            
       if(isDataLoading){
          return <Loader/>
       }
 
-      if (!data){
+      if (isError || !data){
          return <Error/>
       }
 
@@ -32,22 +33,19 @@ export default function CardPerformance (){
        * @returns 
        */
 
-      const  kindsPerformance= {
-         cardio: 'Cardio',
-         energy: 'Energie',
-         endurance: 'Endurance',
-         strength: 'Force',
+      const  kindsPerformance = {
+         intensity: 'Intensité',
          speed: 'Vitesse',
-         intensity: 'Intensité'
+         strength: 'Force',
+         endurance: 'Endurance',
+         energy: 'Energie',
+         cardio: 'Cardio'
       }
 
-      const getKindText = (indexKind) => {
-         
-         const kind =  data.kind[indexKind];
-                
+      const getKindText = (indexKind) => {         
+         const kind =  data.kind[indexKind];                
          return kindsPerformance[kind]
       }
-
 
 //Simple radar chart
    return(<section className='card-performance'>
@@ -75,3 +73,5 @@ export default function CardPerformance (){
 
    </section>)
 }
+
+export default CardPerformance

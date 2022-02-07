@@ -1,45 +1,60 @@
 import './style.scss'
-import {useApiUser} from '../../Api/Api'
+import useFechData from '../../Hooks'
 import { useParams } from 'react-router-dom';
 import { ReactComponent as Oval } from '../../assets/images/Oval.svg'
 import Loader from '../Loader';
 import Error from '../../Pages/Error';
-import React, { PureComponent } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 /**
- * 
- * @returns 
+ * @ignore
+ * @description function to format date : display the day
+ * @param {*} date 
  */
 
-export default function CardActivity (){
+const getDateDay = (date) => {
+   const objetDate = new Date(date);
+   return objetDate.getDate()
+}
+
+/**
+ * @ignore
+ * function to stylize the tooltip
+ * @param {*} param0 
+ * @returns 
+ */
+ function CustomTooltipActivity({active, payload}){
+   console.log(payload)
+   return (active && payload) ? (
+      <ul className='custom-tooltip-activity'>
+            <li className='custom-tooltip-activity__calories'>{`${payload[0].value} KCal`}</li>
+            <li className='custom-tooltip-activity__poids'>{`${payload[1].value} Kg`}</li>
+      </ul>
+   ) : null;
+}
+
+
+ /**
+ * @description Component for showing  DailyActivity chart.
+ *
+ * @component
+ * @example
+ *  <CardActivity  />
+ */
+function CardActivity (){
    const { userId } = useParams();
    // http://localhost:3000/user/12/activity
-   const {data, isDataLoading} = useApiUser(userId, 'activity')
+   // retrieve (récupèrer) our data
+   const {data, isDataLoading, isError} = useFechData(userId, 'activity')
    
-
    if(isDataLoading){
       return <Loader/>
    }
 
-   if (!data){
+   if (isError || !data){
       return <Error/>
    }
-
-   /**
-    * 
-    * @param {*} date 
-    */
-    const getDateDay = (date) => {
-      const objetDate = new Date(date);
-      console.log(date)
-      console.log(objetDate.getDate())
-      return objetDate.getDate()
-   }
-  
-
-
+   //to avoid data undefined, check that data is defined before using it in the component
 
    if(data && isDataLoading === false){
       return <section className='card-activity'>
@@ -59,9 +74,9 @@ export default function CardActivity (){
          </header>
          
          <ResponsiveContainer width="100%" height="100%">
-            <BarChart width={500} height={300} data={data.sessions} barGap={8}>
-               <CartesianGrid stroke="#CCC" vertical={false}/>
+            <BarChart  data={data.sessions} barGap={8}>               
                <XAxis 
+                  
                   dataKey="day" 
                   storke="grey" 
                   tickLine={false} 
@@ -74,23 +89,26 @@ export default function CardActivity (){
                   orientation="right"
                   domain={['dataMin - 2', 'dataMax + 1']}
                   dx={10}
-                  dy={-2}
-                 
+                  dy={-2}                 
                   axisLine={false}
                   tickLine={false}
                   />
-                  <Tooltip />
+                  
                   <YAxis 
                   yAxisId="calories"
                   dataKey="calories"
                   orientation="left"
                   domain={['dataMin - 20', 'dataMax + 20']}
-                  dx={10}
+                  dx={-10}
                   dy={-2}
                   axisLine={false}
                   tickLine={false}
                   />
-               <Tooltip />
+               <Tooltip 
+                  wrapperStyle={{width:130}}
+                  content={<CustomTooltipActivity />}
+               />
+               <CartesianGrid stroke="#CCC" vertical={false}/>
                <Bar yAxisId="kilogram" dataKey="kilogram" fill="#282D30" barSize={7} radius={[50,50,0,0]}/>
                <Bar yAxisId="calories" dataKey="calories" fill="#E60000" barSize={7} radius={[50,50,0,0]}/>
             </BarChart>
@@ -103,3 +121,8 @@ export default function CardActivity (){
    }
 
 }
+
+export default  CardActivity
+
+
+

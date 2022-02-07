@@ -4,3 +4,13 @@
 .card-performance{
    border-radius: 5px;
 }
+
+.custom-tooltip-average-sessions{
+   border: 1px solid green;
+   background-color: #FFFFFF;
+   width: 39px;
+   height: 25px;
+   @include flex (row, center, center);
+   font-size:8px;
+   font-weight:$font-medium
+}

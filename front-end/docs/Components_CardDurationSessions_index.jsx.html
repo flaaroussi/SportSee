@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Components/CardDurationSessions/index.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">SportSee documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+                <div class="search-wrapper">
+                    <input id="search" type="text" placeholder="Search docs..." class="input">
+                </div>
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CardActivity.html">CardActivity</a></li><li><a href="CardDuration.html">CardDuration</a></li><li><a href="CardInfo.html">CardInfo</a></li><li><a href="CardPerformance.html">CardPerformance</a></li><li><a href="CardScore.html">CardScore</a></li><li><a href="Dashboard.html">Dashboard</a></li><li><a href="Error.html">Error</a></li><li><a href="Loader.html">Loader</a></li><li><a href="module.html#.exports">exports</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Profil.html">Profil</a></li><li><a href="Sidebar.html">Sidebar</a></li></ul></div><div class="category"><h2>API</h2><h3>Global</h3><ul><li><a href="global.html#useFechData">useFechData</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Components/CardDurationSessions/index.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import './style.scss'
+import useFechData from '../../Hooks'
+import { useParams } from 'react-router-dom';
+import Loader from '../Loader';
+import Error from '../../Pages/Error';
+import { LineChart, Line,  ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
+
+ 
+  const  days = {
+   1: 'L',
+   2: 'M',
+   3: 'M',
+   4: 'J',
+   5: 'V',
+   6: 'S',
+   7: 'D'
+}
+
+/**
+ * @ignore
+ * get day
+ * @param {Number} indexKind 
+ * @return day 
+ */
+const getDay = (indexDay) => {
+   return   days[indexDay];
+}
+
+/**
+ * Custom tooltip chart
+ * @ignore
+ */
+ function CustomTooltip({active, payload}){
+  return active &amp;&amp; payload ? (
+     &lt;div className="custom-tooltip-average-sessions">            
+           {`${payload[0].value} min`}
+     &lt;/div>
+  ) : null;
+}
+
+
+
+/**
+ * @description Component for display average session duration as Line chart
+ *
+ * @component
+ * @example
+ *
+ * return (
+ *  &lt;CardDuration />
+ * )
+ */
+
+function CardDuration(){
+
+const { userId } = useParams();
+  
+const {data, isDataLoading, isError} = useFechData(userId, 'average-sessions')
+   
+   if(isDataLoading){
+      return &lt;Loader/>
+   }
+
+   if (isError || !data){
+      return &lt;Error/>
+   }
+  
+
+   if(data &amp;&amp; isDataLoading === false){
+      const color = 'rgba(255,255,255,09)';
+      return &lt;section className='card-durationSessions'>
+
+         &lt;header className='card-durationSessions__header'>
+            &lt;h1>Durée moyenne des sessions&lt;/h1>
+         &lt;/header>
+
+         &lt;ResponsiveContainer width="100%" height="100%">
+            &lt;LineChart width={300} height={300} data={data.sessions} margin={{top:0, right:10,left:10,bottom:40}}>
+               &lt;XAxis 
+                  dataKey="day"
+                  stroke={color}
+                  tickLine={false}
+                  dy={2}
+                  tickFormatter={getDay}
+               />
+                &lt;YAxis 
+                  dataKey="sessionLength"
+                  stroke={color}
+                  hide={true}
+                  domain={[0, 'dataMax + 75']}
+                  dy={10}
+               />
+               &lt;Tooltip
+                  cursor={{
+                     stroke : 'rgba(255,255,255,07)'
+                  }}
+                  content={&lt;CustomTooltip/>}
+               />
+               
+               &lt;Line 
+                  type="monotone" 
+                  dataKey="sessionLength" 
+                  stroke={color} 
+                  strokeWidth={2} 
+                  dot={false}
+                  activeDot={{
+                     stroke:'rgba(255,255,255,07)',
+                     r : 6
+                  }}
+               />
+            &lt;/LineChart>
+         &lt;/ResponsiveContainer>
+            
+      &lt;/section>
+
+   }else{
+      return (&lt;Loader/>) 
+   }
+
+}
+export default CardDuration</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/search.js"> </script>
+
+
+</body>
+</html>

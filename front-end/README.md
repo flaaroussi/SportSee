@@ -1,70 +1,69 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SportSee
 
-## Available Scripts
+Sportsee is an application for see you sport statistics, calculate calories in your meals and more. Sportsee also includes device motion sensor to monitor all of your exercise data and food nutrition in real time. Get fit, look good and feel great!
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+- [Node.js (v16.13.1)](https://nodejs.org/en/)
+- [Recommended IDE (Visual Studio Code)](https://code.visualstudio.com)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+First of all, clone the project with HTTPS
 
-### `npm test`
+```bash
+  git clone https://github.com/flaaroussi/FaizaLaaroussi_12_25012022.git SportSee
+  cd SportSee
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Back-end
 
-### `npm run build`
+If you want to install mocked backend for the demo version, you need 
+to be inside the root of the SportSee folder, and run these commands (install dependencies, and run locally).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+cd back-end
+yarn install
+yarn start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Front-end
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If you are on the API folder, make sure to come back to the root folder of the project with
 
-### `npm run eject`
+```
+cd front-end
+yarn install
+yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    
+## Generate documentation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+First of all, you'll need to be located at the root of the project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+cd front-end
+yarn docs
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Then your documentation will be generated, and now you have to go on the docs folder with this :
 
-## Learn More
+```
+cd docs
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Dependencies
 
-### Code Splitting
+| Name              | Version |
+| ----------------- | ------- |
+| react            | 17.0.2 |
+| react-dom        | 17.0.2 |
+| react-router-dom | 6.2.1  |
+| react-scripts    | 5.0.0  |
+| recharts         | 2.1.8 |
+| jsdoc             | 3.6.10   |
+| Better Docs       | 2.7.1   |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

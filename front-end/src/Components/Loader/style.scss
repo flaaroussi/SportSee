@@ -1,4 +1,5 @@
 @import '../../scss/variables.scss';
+
 @keyframes spinner{
   to{
     transform: rotate(360deg);
@@ -8,7 +9,7 @@
   width:100px;
   height: 100px;
   border-radius: 50%;
-  border:3px solid $color-black2;
+  border:6px solid transparent;
   border-top-color: $color-red;
   position: absolute;
   left : 50%;

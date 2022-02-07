@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Home</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">SportSee documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+                <div class="search-wrapper">
+                    <input id="search" type="text" placeholder="Search docs..." class="input">
+                </div>
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="CardActivity.html">CardActivity</a></li><li><a href="CardDuration.html">CardDuration</a></li><li><a href="CardInfo.html">CardInfo</a></li><li><a href="CardPerformance.html">CardPerformance</a></li><li><a href="CardScore.html">CardScore</a></li><li><a href="Dashboard.html">Dashboard</a></li><li><a href="Error.html">Error</a></li><li><a href="Loader.html">Loader</a></li><li><a href="module.html#.exports">exports</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="Profil.html">Profil</a></li><li><a href="Sidebar.html">Sidebar</a></li></ul></div><div class="category"><h2>API</h2><h3>Global</h3><ul><li><a href="global.html#useFechData">useFechData</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p></p>
+                    <h1>Home</h1>
+                </header>
+                
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>SportSee</h1>
+<p>Sportsee is an application for see you sport statistics, calculate calories in your meals and more. Sportsee also includes device motion sensor to monitor all of your exercise data and food nutrition in real time. Get fit, look good and feel great!</p>
+<h2>Prerequisites</h2>
+<ul>
+<li><a href="https://nodejs.org/en/">Node.js (v16.13.1)</a></li>
+<li><a href="https://code.visualstudio.com">Recommended IDE (Visual Studio Code)</a></li>
+</ul>
+<h2>Installation</h2>
+<p>First of all, clone the project with HTTPS</p>
+<pre class="prettyprint source lang-bash"><code>  git clone https://github.com/flaaroussi/FaizaLaaroussi_12_25012022.git SportSee
+  cd SportSee
+</code></pre>
+<h3>Back-end</h3>
+<p>If you want to install mocked backend for the demo version, you need
+to be inside the root of the SportSee folder, and run these commands (install dependencies, and run locally).</p>
+<pre class="prettyprint source"><code>cd back-end
+yarn install
+yarn start
+</code></pre>
+<h3>Front-end</h3>
+<p>If you are on the API folder, make sure to come back to the root folder of the project with</p>
+<pre class="prettyprint source"><code>cd front-end
+yarn install
+yarn start
+</code></pre>
+<h2>Generate documentation</h2>
+<p>First of all, you'll need to be located at the root of the project.</p>
+<pre class="prettyprint source"><code>cd front-end
+yarn docs
+</code></pre>
+<p>Then your documentation will be generated, and now you have to go on the docs folder with this :</p>
+<pre class="prettyprint source"><code>cd docs
+</code></pre>
+<h2>Dependencies</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>react</td>
+<td>17.0.2</td>
+</tr>
+<tr>
+<td>react-dom</td>
+<td>17.0.2</td>
+</tr>
+<tr>
+<td>react-router-dom</td>
+<td>6.2.1</td>
+</tr>
+<tr>
+<td>react-scripts</td>
+<td>5.0.0</td>
+</tr>
+<tr>
+<td>recharts</td>
+<td>2.1.8</td>
+</tr>
+<tr>
+<td>jsdoc</td>
+<td>3.6.10</td>
+</tr>
+<tr>
+<td>Better Docs</td>
+<td>2.7.1</td>
+</tr>
+</tbody>
+</table></article>
+    </section>
+
+
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/search.js"> </script>
+
+
+</body>
+</html>

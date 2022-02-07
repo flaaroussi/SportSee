@@ -19,8 +19,7 @@
       }
 
       &__indicator{
-         @include flex (row, space-between, center);
-        
+         @include flex (row, space-between, center);        
          &__els{
             margin-right: 20px;
             span{
@@ -31,4 +30,22 @@
          }
       }
    } 
+}
+
+.custom-tooltip-activity{
+   border:1px solid red;
+   width:39px;
+   height:63px;
+   background-color:$color-red;
+   color:white;
+   font-size:7px;
+   font-weight:500;
+   @include flex (column, space-between, center);
+   li{
+      padding-top:6px;
+   }
+   li:last-child{
+      padding-bottom:6px
+
+   }
 }

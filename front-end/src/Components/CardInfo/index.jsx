@@ -10,16 +10,23 @@ const icons = {
    chicken : proteineIcon,
    apple : appleIcon,
    cheesburger :cheeseburgerIcon,
-
-   
 }
 
 /**
- * display card key infos
- * @param {*} param0 
- * @returns 
+ * @description Component for showing user keys ionformation.
+ *
+ * @component
+ * @example
+ * const keyName = 'Calories'
+ * keyValue = 120
+ * const KeyUnite = 'kCal'
+ * const icon = 'calorie'
+  * return (
+ *  <CardInfo  keyName={keyName} keyValue={keyValue} KeyUnite={KeyUnite} icon={icon} />
+ * )
  */
-export default function CardInfo ({keyName, keyValue, KeyUnite, icon}){
+
+function CardInfo ({keyName, keyValue, KeyUnite, icon}){
    return(<section className="card-info">
       <div className={"card-info__logo "+icon}>
          <img src={icons[icon]} alt="icone" />
@@ -31,13 +38,24 @@ export default function CardInfo ({keyName, keyValue, KeyUnite, icon}){
    </section>)
 }
 
-
-
-
-//Valider le type des propriétés
+//Validate the type of properties
 CardInfo.propTypes ={
+   /**
+    * Key info name's
+    */
    keyName: propTypes.string,
+   /**
+    * Key info value
+    */
    keyValue: propTypes.number,
+   /**
+    * Key info unite
+    */
    KeyUnite: propTypes.string,
-   icon : propTypes.object
+   /**
+    * Key icon
+    */
+   icon : propTypes.string
  }
+
+ export default  CardInfo 

@@ -1,0 +1,41 @@
+{
+  "tags": {
+      "allowUnknownTags": true
+  },
+  "source": {
+      "include": ["./src"],
+      "includePattern": "\\.(js|jsx)$"
+  },
+  "plugins": [
+      "better-docs/component",
+      "better-docs/category",
+      "plugins/markdown"
+  ],
+  "opts": {
+      "encoding": "utf8",
+      "destination": "docs/",
+      "recurse": true,
+      "verbose": true,
+      "readme": "./readme.md",
+      "template": "node_modules/better-docs"
+  },
+  "templates": {
+      "better-docs": {
+            "name": "SportSee documentation",
+            "navigation": [
+                {
+                    "label": "GitHub",
+                    "href": "https://github.com/SoftwareBrothers/example-design-system"
+                }
+            ]
+      },
+      "search": true,
+      "default": {
+        "staticFiles": {
+          "include": [
+              "./docs-src"
+          ]
+        }
+    }
+  }
+}
