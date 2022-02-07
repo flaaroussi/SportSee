@@ -11,6 +11,8 @@
 # production
 /build
 /.history
+/.vscode
+/.test-api
 
 # misc
 .DS_Store
