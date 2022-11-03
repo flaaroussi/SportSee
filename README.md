@@ -3,10 +3,10 @@
 
 Sportsee is an application for see you sport statistics, calculate calories in your meals and more. Sportsee also includes device motion sensor to monitor all of your exercise data and food nutrition in real time. Get fit, look good and feel great!
 
-#Problem
+# Problem
 Create an analytical dashboard of sports performance and physiological indicators
 
-#Need
+# Need
 Display user data as a graph
 
 ## Prerequisites
